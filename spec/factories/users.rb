@@ -28,5 +28,7 @@ FactoryBot.define do
     last_name { ['Soesanto', 'Yamashita', 'de Flaire'].sample }
     phone_number { %w[+2511155252222 +1253655256336 +3265652365236].sample }
     email { "#{SecureRandom.hex(4)}@example.org}" }
+    password { 'password' }
+    password_confirmation { 'password' }
   end
 end
