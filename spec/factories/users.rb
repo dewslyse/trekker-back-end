@@ -25,7 +25,7 @@ FactoryBot.define do
   factory :user do
     username { SecureRandom.hex(3) }
     first_name { %w[Adam Sam Mike].sample }
-    last_name { ["Soesanto", "Yamashita", "de Flaire"].sample }
+    last_name { ['Soesanto', 'Yamashita', 'de Flaire'].sample }
     phone_number { %w[+2511155252222 +1253655256336 +3265652365236].sample }
     email { "#{SecureRandom.hex(4)}@example.org}" }
   end
