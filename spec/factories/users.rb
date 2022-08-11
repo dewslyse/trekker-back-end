@@ -21,16 +21,12 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_users_on_username              (username) UNIQUE
 #
-class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-  # has_many: locations, dependent: :destroy
-  # has_many: reservations, dependent: :destroy
-  validates :username, presence: true, uniqueness: true, length: { minimum: 3, maximum: 20 }
-  validates :first_name, presence: true, length: { minimum: 3, maximum: 20 }
-  validates :last_name, length: { minimum: 3, maximum: 20 }
-  PHONE_REGEX_COUNTRY = /\+(?:[0-9] ?){6,14}[0-9]/
-  validates :phone_number, length: { minimum: 6, maximum: 14 }, format: { with: PHONE_REGEX_COUNTRY, message: 'Please enter a valid number' }
+FactoryBot.define do
+  factory :user do
+    username { SecureRandom.hex(3) }
+    first_name { %w[Adam Sam Mike].sample }
+    last_name { ["Soesanto", "Yamashita", "de Flaire"].sample }
+    phone_number { %w[+2511155252222 +1253655256336 +3265652365236].sample }
+    email { "#{SecureRandom.hex(4)}@example.org}" }
+  end
 end
