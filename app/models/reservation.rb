@@ -20,7 +20,7 @@
 #
 class Reservation < ApplicationRecord
   belongs_to :user
-  #belongs_to :destination
+  # belongs_to :destination
 
   validates :fee, presence: true
   validates :start_date, presence: true
