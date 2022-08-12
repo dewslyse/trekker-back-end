@@ -4,7 +4,7 @@
 #
 #  id         :bigint           not null, primary key
 #  end_date   :date
-#  fee        :decimal(, )
+#  fee        :decimal(5, 2)
 #  start_date :date
 #  created_at :datetime         not null
 #  updated_at :datetime         not null

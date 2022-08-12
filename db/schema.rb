@@ -15,7 +15,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_12_155155) do
   enable_extension "plpgsql"
 
   create_table "reservations", force: :cascade do |t|
-    t.decimal "fee"
+    t.decimal "fee", precision: 5, scale: 2
     t.date "start_date"
     t.date "end_date"
     t.datetime "created_at", null: false
