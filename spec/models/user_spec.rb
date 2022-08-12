@@ -101,5 +101,31 @@ RSpec.describe User, type: :model do
         expect(build(:user, last_name: 'a')).to_not be_valid
       end
     end
+
+    context 'when phone_number is valid' do
+      it 'is invalid when the phone_number is null' do
+        expect(build(:user, phone_number: nil)).to_not be_valid
+      end
+
+      it 'is invalid when the phone_number is empty' do
+        expect(build(:user, phone_number: '')).to_not be_valid
+      end
+
+      it 'is invalid when the phone_number is too long' do
+        expect(build(:user, phone_number: '2' * 15)).to_not be_valid
+      end
+
+      it 'is invalid when the phone_number is too short' do
+        expect(build(:user, phone_number: '2')).to_not be_valid
+      end
+
+      it 'is invalid when the phone_number is invalid format' do
+        expect(build(:user, phone_number: 'not a phone number')).to_not be_valid
+      end
+
+      it 'is valid when the phone_number is valid format' do
+        expect(build(:user, phone_number: '+15555555555')).to be_valid
+      end
+    end
   end
 end
