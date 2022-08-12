@@ -55,5 +55,15 @@ RSpec.describe User, type: :model do
         expect(user).to_not be_valid
       end
     end
+
+    context 'when the email is valid' do
+      it 'is invalid when the email is null' do
+        expect(build(:user, email: nil)).to_not be_valid
+      end
+
+      it 'is invalid when the email is invalid format' do
+        expect(build(:user, email: 'not an email')).to_not be_valid
+      end
+    end
   end
 end
