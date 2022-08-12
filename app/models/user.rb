@@ -31,10 +31,10 @@ class User < ApplicationRecord
   validates :first_name, presence: true, length: { minimum: 3, maximum: 20 }
   validates :last_name, length: { minimum: 3, maximum: 20 }
   PHONE_REGEX_COUNTRY = /\+(?:[0-9] ?){6,14}[0-9]/
+  EMAIL_REGEX = /\A[^@\s]+@[^@\s]+\z/
   validates :phone_number, length: { minimum: 6, maximum: 14 },
                            format: { with: PHONE_REGEX_COUNTRY, message: 'Please enter a valid number' }
-  validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP, message: 'Must be a valid email address' }
-
+  validates :email, format: { with: EMAIL_REGEX, message: 'Please enter a valid email address' }
   validates :password, presence: true, length: { minimum: 6, maximum: 20 }, confirmation: true
   validates :password_confirmation, presence: true, length: { minimum: 6, maximum: 20 }
 end
