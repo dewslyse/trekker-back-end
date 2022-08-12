@@ -3,7 +3,7 @@
 # Table name: users
 #
 #  id                     :bigint           not null, primary key
-#  email                  :string           not null
+#  email                  :string
 #  encrypted_password     :string           default(""), not null
 #  first_name             :string           not null
 #  last_name              :string
@@ -17,7 +17,6 @@
 #
 # Indexes
 #
-#  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_users_on_username              (username) UNIQUE
 #

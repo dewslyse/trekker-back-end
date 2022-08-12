@@ -15,7 +15,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_11_220337) do
   enable_extension "plpgsql"
 
   create_table "users", force: :cascade do |t|
-    t.string "email", null: false
+    t.string "email"
     t.string "first_name", null: false
     t.string "last_name"
     t.string "phone_number"
@@ -26,7 +26,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_11_220337) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end
