@@ -65,5 +65,23 @@ RSpec.describe User, type: :model do
         expect(build(:user, email: 'not an email')).to_not be_valid
       end
     end
+
+    context 'when first_name is valid' do
+      it 'is invalid when the first_name is null' do
+        expect(build(:user, first_name: nil)).to_not be_valid
+      end
+
+      it 'is invalid when the first_name is empty' do
+        expect(build(:user, first_name: '')).to_not be_valid
+      end
+
+      it 'is invalid when the first_name is too long' do
+        expect(build(:user, first_name: 'a' * 21)).to_not be_valid
+      end
+
+      it 'is invalid when the first_name is too short' do
+        expect(build(:user, first_name: 'a')).to_not be_valid
+      end
+    end
   end
 end
