@@ -12,3 +12,8 @@ User.destroy_all
 puts "[db/seeds.rb] Seeding data..."
 FactoryBot.create_list(:user, 5)
 puts "[db/seeds.rb] Seeding data...done"
+
+Reservation.destroy_all
+puts "[db/seeds.rb] Seeding data..."
+FactoryBot.create(:reservation, 3)
+puts "[db/seeds.rb] Seeding data...done"

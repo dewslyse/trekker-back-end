@@ -22,6 +22,6 @@ FactoryBot.define do
   factory :reservation do
     fee { '9.99' }
     start_date { '2022-08-12' }
-    end_date { '2022-08-12' }
+    end_date { '2022-09-12' }
   end
 end
