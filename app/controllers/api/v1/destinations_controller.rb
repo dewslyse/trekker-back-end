@@ -1,4 +1,4 @@
-class DestinationsController < ApplicationController
+class Api::V1::DestinationsController < ApplicationController
   before_action :set_destination, only: %i[show update destroy]
 
   # GET /destinations
@@ -48,6 +48,6 @@ class DestinationsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def destination_params
     # params.fetch(:destination, {})
-    params.require(:destination).permit(:name, :city_name, :description, :image_url, :user_id)
+    params.require(:destination).permit(:name, :description, :image_url, :user_id, :city_name)
   end
 end

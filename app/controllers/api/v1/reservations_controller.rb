@@ -3,7 +3,8 @@ class Api::V1::ReservationsController < ApplicationController
 
   # GET /reservations
   def index
-    @reservations = Reservation.where(user_id: current_user.id)
+    @reservations = Reservation.where(user_id: params[:user_id])
+    # @reservations = Reservation.all
 
     render json: @reservations
   end
@@ -47,6 +48,6 @@ class Api::V1::ReservationsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def reservation_params
-    params.require(:reservation).permit(:start_date, :end_date, :fee, :user_id, :destination_id)
+    params.require(:reservation).permit(:user_id, :destination_id, :start_date, :end_date, :fee)
   end
 end
