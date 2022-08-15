@@ -5,7 +5,8 @@ module Api
     before_save :round_to_two_digits
 
     def index
-      render json: Reservation.all.order('created_at DESC')
+      @reservations = Reservation.all
+      render json: @reservations.order(created_at: :desc)
     end
 
     def round_to_two_digits
