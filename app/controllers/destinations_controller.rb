@@ -1,5 +1,5 @@
 class DestinationsController < ApplicationController
-  before_action :set_destination, only: %i[ show update destroy ]
+  before_action :set_destination, only: %i[show update destroy]
 
   # GET /destinations
   def index
@@ -39,13 +39,14 @@ class DestinationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_destination
-      @destination = Destination.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def destination_params
-      params.fetch(:destination, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_destination
+    @destination = Destination.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def destination_params
+    params.fetch(:destination, {})
+  end
 end
