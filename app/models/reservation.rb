@@ -4,11 +4,11 @@
 #
 #  id         :bigint           not null, primary key
 #  end_date   :date
-#  fee        :decimal(5, 2)
+#  fee        :decimal(, )
 #  start_date :date
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  user_id    :bigint           not null
+#  user_id    :bigint
 #
 # Indexes
 #
@@ -22,7 +22,7 @@ class Reservation < ApplicationRecord
   belongs_to :user
   # belongs_to :destination
 
-  validates :fee, presence: true
   validates :start_date, presence: true
   validates :end_date, presence: true
+  validates :fee, presence: true
 end

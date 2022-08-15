@@ -4,11 +4,11 @@
 #
 #  id         :bigint           not null, primary key
 #  end_date   :date
-#  fee        :decimal(5, 2)
+#  fee        :decimal(, )
 #  start_date :date
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  user_id    :bigint           not null
+#  user_id    :bigint
 #
 # Indexes
 #
@@ -20,8 +20,6 @@
 #
 FactoryBot.define do
   factory :reservation do
-    fee { '9.99' }
-    start_date { '2022-08-12' }
-    end_date { '2022-09-12' }
+    
   end
 end

@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_12_155155) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_15_161347) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "reservations", force: :cascade do |t|
-    t.decimal "fee", precision: 5, scale: 2
+    t.bigint "user_id"
+    t.decimal "fee"
     t.date "start_date"
     t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
