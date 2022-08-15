@@ -9,6 +9,8 @@ end
 require 'factory_bot'
 
 User.destroy_all
+# Reservation.destroy_all
 puts "[db/seeds.rb] Seeding data..."
 FactoryBot.create_list(:user, 5)
+# FactoryBot.create(:reservation, 3)
 puts "[db/seeds.rb] Seeding data...done"
