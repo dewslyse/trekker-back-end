@@ -26,6 +26,8 @@ class Reservation < ApplicationRecord
   belongs_to :destination
 
   validates :start_date, presence: true
-  validates :end_date, presence: true
+  # end date is greater than or equal to start date
+  validates :end_date, presence: true,
+    date: { after_or_equal_to: :start_date }
   validates :fee, presence: true
 end
