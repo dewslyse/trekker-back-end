@@ -1,24 +1,9 @@
-# == Schema Information
-#
-# Table name: reservations
-#
-#  id         :bigint           not null, primary key
-#  end_date   :date
-#  fee        :decimal(, )
-#  start_date :date
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  user_id    :bigint
-#
-# Indexes
-#
-#  index_reservations_on_user_id  (user_id)
-#
-# Foreign Keys
-#
-#  fk_rails_...  (user_id => users.id)
-#
 # FactoryBot.define do
 #   factory :reservation do
+#     start_date { Date.today }
+#     end_date { Date.today + 1 }
+#     fee { [1000, 200, 3000, 400, 320].sample }
+#     destination { Destination.all.sample || association(:destination) }
+#     user { User.all.sample || association(:user) }
 #   end
 # end
