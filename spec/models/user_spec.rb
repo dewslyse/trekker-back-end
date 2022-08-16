@@ -64,67 +64,11 @@ RSpec.describe User, type: :model do
       it 'is invalid when the email is invalid format' do
         expect(build(:user, email: 'not an email')).to_not be_valid
       end
-    end
 
-    context 'when first_name is valid' do
-      it 'is invalid when the first_name is null' do
-        expect(build(:user, first_name: nil)).to_not be_valid
-      end
-
-      it 'is invalid when the first_name is empty' do
-        expect(build(:user, first_name: '')).to_not be_valid
-      end
-
-      it 'is invalid when the first_name is too long' do
-        expect(build(:user, first_name: 'a' * 21)).to_not be_valid
-      end
-
-      it 'is invalid when the first_name is too short' do
-        expect(build(:user, first_name: 'a')).to_not be_valid
-      end
-    end
-
-    context 'when last_name is valid' do
-      it 'is invalid when the last_name is null' do
-        expect(build(:user, last_name: nil)).to_not be_valid
-      end
-
-      it 'is invalid when the last_name is empty' do
-        expect(build(:user, last_name: '')).to_not be_valid
-      end
-
-      it 'is invalid when the last_name is too long' do
-        expect(build(:user, last_name: 'a' * 21)).to_not be_valid
-      end
-
-      it 'is invalid when the last_name is too short' do
-        expect(build(:user, last_name: 'a')).to_not be_valid
-      end
-    end
-
-    context 'when phone_number is valid' do
-      it 'is invalid when the phone_number is null' do
-        expect(build(:user, phone_number: nil)).to_not be_valid
-      end
-
-      it 'is invalid when the phone_number is empty' do
-        expect(build(:user, phone_number: '')).to_not be_valid
-      end
-
-      it 'is invalid when the phone_number is too long' do
-        expect(build(:user, phone_number: '2' * 15)).to_not be_valid
-      end
-
-      it 'is invalid when the phone_number is too short' do
-        expect(build(:user, phone_number: '2')).to_not be_valid
-      end
-
-      it 'is invalid when the phone_number is invalid format' do
-        expect(build(:user, phone_number: 'not a phone number')).to_not be_valid
-      end
-
-      it 'is valid when the phone_number is valid format' do
-        expect(build(:user, phone_number: '+15555555555')).to be_valid
+      it 'is invalid when the email is taken' do
+        create(:user, email: 'email@teshe.com')
+        user = build(:user, email: 'email@teshe.com')
+        expect(user).to_not be_valid
       end
     end
 
