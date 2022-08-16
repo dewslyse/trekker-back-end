@@ -1,10 +1,10 @@
 class Api::V1::SessionsController < ApplicationController
   def login
     @user = User.find_by(username: params[:username])
-    if @user 
-      render json: { 
+    if @user
+      render json: {
         user: @user
-       }, status: :ok
+      }, status: :ok
     else
       render json: { error: 'Enter valid username and password' }, status: :unauthorized
     end
@@ -13,9 +13,9 @@ class Api::V1::SessionsController < ApplicationController
   def register
     @user = User.new(user_params)
     if @user.save
-      render json: { 
+      render json: {
         user: @user
-       }, status: :ok
+      }, status: :ok
     else
       render json: { error: @user.errors }, status: :unauthorized
     end
