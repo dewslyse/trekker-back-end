@@ -9,8 +9,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :destinations
       resources :reservations
-      post '/login', to: 'sessions#login'
-      post '/register', to: 'sessions#register'
+      post '/login', to: 'sessions#login', as: 'login'
+      post '/register', to: 'sessions#register', as: 'register'
     end
   end
 end
