@@ -9,8 +9,10 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :destinations
       resources :reservations
-      post '/login', to: 'sessions#login', as: 'login'
-      post '/register', to: 'sessions#register', as: 'register'
+      resources :sessions, only: [:create]
+      resources :registrations, only: [:create]
+      delete :logout, to: "sessions#logout"
+      get :logged_in, to: "sessions#logged_in"
     end
   end
 end
