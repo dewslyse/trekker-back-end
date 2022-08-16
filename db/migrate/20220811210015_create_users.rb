@@ -5,6 +5,7 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.string :full_name, null: false
       t.string :username, unique: true, null: false, default: ""
       t.string :password_digest
+      t.string :role, default: "user"
 
 
       t.timestamps
