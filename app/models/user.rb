@@ -25,8 +25,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  # has_many: locations, dependent: :destroy
-  # has_many: reservations, dependent: :destroy
+  # has_many :destinations, dependent: :destroy
+  has_many :reservations, dependent: :destroy
   validates :username, presence: true, uniqueness: true, length: { minimum: 3, maximum: 20 }
   validates :first_name, presence: true, length: { minimum: 3, maximum: 20 }
   validates :last_name, length: { minimum: 3, maximum: 20 }
