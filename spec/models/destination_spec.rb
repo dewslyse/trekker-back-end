@@ -74,8 +74,19 @@ RSpec.describe Destination, type: :model do
       it 'is invalid when the description is less than 3 characters' do
         expect(build(:destination, description: 'ab')).to_not be_valid
       end
+
       it 'is invalid when the description is more than 500 characters' do
         expect(build(:destination, description: 'a' * 501)).to_not be_valid
+      end
+    end
+
+    context 'when the image_url is valid' do
+      it 'is invalid when the image_url is null' do
+        expect(build(:destination, image_url: nil)).to_not be_valid
+      end
+
+      it 'is invalid when the image_url is empty' do
+        expect(build(:destination, image_url: '')).to_not be_valid
       end
     end
   end
