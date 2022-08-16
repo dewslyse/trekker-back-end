@@ -28,5 +28,19 @@ RSpec.describe Reservation, type: :model do
     it 'has a valid factory' do
       expect(build(:reservation)).to be_valid
     end
+
+    context 'when the start_date is valid' do
+      it 'is invalid when the start_date is null' do
+        expect(build(:reservation, start_date: nil)).to_not be_valid
+      end
+
+      it 'is invalid when the start_date is empty' do
+        expect(build(:reservation, start_date: '')).to_not be_valid
+      end
+
+      it 'is invalid when the start_date is less than today' do
+        expect(build(:reservation, start_date: Date.today - 1)).to_not be_valid
+      end
+    end
   end
 end
