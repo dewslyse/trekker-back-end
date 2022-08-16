@@ -128,6 +128,10 @@ RSpec.describe User, type: :model do
       it 'is invalid when the password_confirmation is too short' do
         expect(build(:user, password_confirmation: 'a')).to_not be_valid
       end
+
+      it 'is invalid when the password_confirmation is not the same as the password' do
+        expect(build(:user, password_confirmation: 'not the same')).to_not be_valid
+      end
     end
   end
 end
