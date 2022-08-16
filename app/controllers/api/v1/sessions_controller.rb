@@ -1,29 +1,51 @@
+require_relative 'current_user_concern'
+
 class Api::V1::SessionsController < ApplicationController
-  def login
-    @user = User.find_by(username: params[:username])
-    if @user
+  include CurrentUserConcern
+
+  def create
+    user = User.find_by(username: params[:username])
+      .try(:authenticate, params[:password])
+
+    if user
+      session[:user_id] = user.id
       render json: {
-        user: @user
-      }, status: :ok
+        status: :created,
+        logged_in: true,
+        user: {
+          id: user.id,
+          full_name: user.full_name,
+          username: user.username,
+          email: user.email,
+          role: user.role
+        }
+      }
     else
-      render json: { error: 'Enter valid username and password' }, status: :unauthorized
+      render json: {
+        status: :unauthorized,
+        errors: ['Invalid username or password']
+      }
     end
   end
 
-  def register
-    @user = User.new(user_params)
-    if @user.save
+  def logged_in
+    if @current_user
       render json: {
-        user: @user
-      }, status: :ok
+        logged_in: true,
+        user: @current_user
+      }
     else
-      render json: { error: @user.errors }, status: :unauthorized
+      render json: {
+        logged_in: false
+      }
     end
   end
 
-  private
-
-  def user_params
-    params.permit(:full_name, :username, :email, :password, :password_confirmation)
+  def logout
+    reset_session
+    render json: {
+      status: :ok,
+      logged_out: true
+    }
   end
 end
