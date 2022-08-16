@@ -42,5 +42,18 @@ RSpec.describe Reservation, type: :model do
         expect(build(:reservation, start_date: Date.today - 1)).to_not be_valid
       end
     end
+    context 'when the end_date is valid' do
+      it 'is invalid when the end_date is null' do
+        expect(build(:reservation, end_date: nil)).to_not be_valid
+      end
+
+      it 'is invalid when the end_date is empty' do
+        expect(build(:reservation, end_date: '')).to_not be_valid
+      end
+
+      it 'is invalid when the end_date is less than start_date' do
+        expect(build(:reservation, end_date: Date.today - 1)).to_not be_valid
+      end
+    end
   end
 end
