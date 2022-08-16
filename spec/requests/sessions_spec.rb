@@ -18,4 +18,11 @@ RSpec.describe 'Sessions', type: :request do
       expect(response).to have_http_status(:success)
     end
   end
+
+  describe 'DELETE#logout' do
+    it 'returns http success' do
+      delete api_v1_logout_path
+      expect(response).to have_http_status(:success)
+    end
+  end
 end
