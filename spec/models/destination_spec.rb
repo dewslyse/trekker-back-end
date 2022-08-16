@@ -44,5 +44,22 @@ RSpec.describe Destination, type: :model do
         expect(build(:destination, name: 'a' * 31)).to_not be_valid
       end
     end
+
+    context 'when the city_name is valid' do
+      it 'is invalid when the city_name is null' do
+        expect(build(:destination, city_name: nil)).to_not be_valid
+      end
+
+      it 'is invalid when the city_name is empty' do
+        expect(build(:destination, city_name: '')).to_not be_valid
+      end
+
+      it 'is invalid when the city_name is less than 3 characters' do
+        expect(build(:destination, city_name: 'ab')).to_not be_valid
+      end
+      it 'is invalid when the city_name is more than 20 characters' do
+        expect(build(:destination, city_name: 'a' * 21)).to_not be_valid
+      end
+    end
   end
 end
