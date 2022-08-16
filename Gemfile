@@ -22,7 +22,7 @@ gem 'puma', '~> 5.0'
 # gem "kredis"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-# gem "bcrypt", "~> 3.1.7"
+gem "bcrypt", "~> 3.1.7"
 
 # Rubocop
 gem 'rubocop', '>= 1.0', '< 2.0'
@@ -52,5 +52,3 @@ group :development do
   # gem "spring"
   # gem 'annotate'
 end
-
-gem 'devise'
