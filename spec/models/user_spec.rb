@@ -72,6 +72,24 @@ RSpec.describe User, type: :model do
       end
     end
 
+    context 'when full_name is valid' do
+      it 'is invalid when the full_name is null' do
+        expect(build(:user, full_name: nil)).to_not be_valid
+      end
+
+      it 'is invalid when the full_name is empty' do
+        expect(build(:user, full_name: '')).to_not be_valid
+      end
+
+      it 'is invalid when the full_name is too long' do
+        expect(build(:user, full_name: 'a' * 21)).to_not be_valid
+      end
+
+      it 'is invalid when the full_name is too short' do
+        expect(build(:user, full_name: 'a')).to_not be_valid
+      end
+    end
+
     context 'when the password is valid' do
       it 'is invalid when the password is null' do
         expect(build(:user, password: nil)).to_not be_valid
