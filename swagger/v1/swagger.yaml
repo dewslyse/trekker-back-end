@@ -1,0 +1,70 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/registrations":
+    post:
+      summary: Register
+      tags:
+      - Users
+      parameters: []
+      responses:
+        '201':
+          description: user created
+        '422':
+          description: Invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                full_name:
+                  type: string
+                username:
+                  type: string
+                  example: tester
+                email:
+                  type: string
+                  example: tester@example.com
+                password:
+                  type: string
+                  example: password
+                password_confirmation:
+                  type: string
+                  example: password
+              required:
+              - full_name
+              - username
+              - email
+              - password
+              - password_confirmation
+  "/api/v1/sessions":
+    post:
+      summary: Sign in
+      tags:
+      - Users
+      parameters: []
+      responses:
+        '401':
+          description: Invalid username or password
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+              required:
+              - username
+              - password
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
