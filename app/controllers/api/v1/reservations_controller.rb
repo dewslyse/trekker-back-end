@@ -6,7 +6,7 @@ class Api::V1::ReservationsController < ApplicationController
 
   # GET /reservations
   def index
-    @reservations = Reservation.all.where(user_id: params[:user_id])
+    @reservations = Reservation.all.where(user_id: @current_user.id)
     # @reservations = Reservation.all
 
     render json: @reservations
