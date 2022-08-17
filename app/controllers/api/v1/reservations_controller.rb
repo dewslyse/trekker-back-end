@@ -22,7 +22,6 @@ class Api::V1::ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     @reservation.user_id = @current_user.id
 
-
     if @reservation.save
       render json: @reservation, status: :created
     else

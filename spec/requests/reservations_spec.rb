@@ -9,7 +9,6 @@ RSpec.describe 'Reservation', type: :request do
     @reservation = build(:reservation)
 
     post '/api/v1/sessions', params: { username: @user.username, password: @user.password }
-
   end
 
   describe 'GET #index' do
