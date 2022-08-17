@@ -39,7 +39,6 @@
     <orderEntry type="library" scope="PROVIDED" name="activerecord (v7.0.3.1, ruby-3.1.2-p20) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activestorage (v7.0.3.1, ruby-3.1.2-p20) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activesupport (v7.0.3.1, ruby-3.1.2-p20) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="annotate (v3.2.0, ruby-3.1.2-p20) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ast (v2.4.2, ruby-3.1.2-p20) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bcrypt (v3.1.18, ruby-3.1.2-p20) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bootsnap (v1.13.0, ruby-3.1.2-p20) [gem]" level="application" />
@@ -54,6 +53,7 @@
     <orderEntry type="library" scope="PROVIDED" name="erubi (v1.11.0, ruby-3.1.2-p20) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="factory_bot (v6.2.1, ruby-3.1.2-p20) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="factory_bot_rails (v6.2.0, ruby-3.1.2-p20) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="faker (v2.22.0, ruby-3.1.2-p20) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="globalid (v1.0.0, ruby-3.1.2-p20) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="i18n (v1.12.0, ruby-3.1.2-p20) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="io-console (v0.5.11, ruby-3.1.2-p20) [gem]" level="application" />
@@ -74,6 +74,7 @@
     <orderEntry type="library" scope="PROVIDED" name="nokogiri (v1.13.8, ruby-3.1.2-p20) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="orm_adapter (v0.5.0, ruby-3.1.2-p20) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="parallel (v1.22.1, ruby-3.1.2-p20) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="parser (v3.1.2.1, ruby-3.1.2-p20) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="pg (v1.4.3, ruby-3.1.2-p20) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="puma (v5.6.4, ruby-3.1.2-p20) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="racc (v1.6.0, ruby-3.1.2-p20) [gem]" level="application" />
@@ -95,6 +96,8 @@
     <orderEntry type="library" scope="PROVIDED" name="rspec-mocks (v3.11.1, ruby-3.1.2-p20) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rspec-rails (v5.1.2, ruby-3.1.2-p20) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rspec-support (v3.11.0, ruby-3.1.2-p20) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rubocop (v1.34.1, ruby-3.1.2-p20) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rubocop-ast (v1.21.0, ruby-3.1.2-p20) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ruby-progressbar (v1.11.0, ruby-3.1.2-p20) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="strscan (v3.0.4, ruby-3.1.2-p20) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thor (v1.2.1, ruby-3.1.2-p20) [gem]" level="application" />

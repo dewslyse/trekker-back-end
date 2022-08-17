@@ -1,5 +1,8 @@
+require_relative 'current_user_concern'
+
 class Api::V1::DestinationsController < ApplicationController
   before_action :set_destination, only: %i[show update destroy]
+  include CurrentUserConcern
 
   # GET /destinations
   def index
@@ -16,9 +19,10 @@ class Api::V1::DestinationsController < ApplicationController
   # POST /destinations
   def create
     @destination = Destination.new(destination_params)
+    @destination.user_id = @current_user.id
 
     if @destination.save
-      render json: @destination, status: :created, location: @destination
+      render json: @destination, status: :created
     else
       render json: @destination.errors, status: :unprocessable_entity
     end
@@ -48,6 +52,6 @@ class Api::V1::DestinationsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def destination_params
     # params.fetch(:destination, {})
-    params.require(:destination).permit(:name, :description, :image_url, :user_id, :city_name)
+    params.permit(:name, :description, :image_url, :city_name)
   end
 end

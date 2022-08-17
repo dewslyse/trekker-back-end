@@ -1,9 +1,12 @@
+require_relative 'current_user_concern'
+
 class Api::V1::ReservationsController < ApplicationController
   before_action :set_reservation, only: %i[show update destroy]
+  include CurrentUserConcern
 
   # GET /reservations
   def index
-    @reservations = Reservation.where(user_id: params[:user_id])
+    @reservations = Reservation.all.where(user_id: params[:user_id])
     # @reservations = Reservation.all
 
     render json: @reservations
@@ -17,9 +20,10 @@ class Api::V1::ReservationsController < ApplicationController
   # POST /reservations
   def create
     @reservation = Reservation.new(reservation_params)
+    @reservation.user_id = @current_user.id
 
     if @reservation.save
-      render json: @reservation, status: :created, location: @reservation
+      render json: @reservation, status: :created
     else
       render json: @reservation.errors, status: :unprocessable_entity
     end
@@ -48,6 +52,6 @@ class Api::V1::ReservationsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def reservation_params
-    params.require(:reservation).permit(:user_id, :destination_id, :start_date, :end_date, :fee)
+    params.permit(:start_date, :end_date, :fee, :destination_id)
   end
 end
