@@ -7,7 +7,7 @@ class Api::V1::SessionsController < ApplicationController
     user = User.find_by(username: params[:username])
       .try(:authenticate, params[:password])
 
-    if user
+    if user.present?
       session[:user_id] = user.id
       render json: {
         status: :created,
@@ -19,12 +19,12 @@ class Api::V1::SessionsController < ApplicationController
           email: user.email,
           role: user.role
         }
-      }
+      }, status: :created
     else
       render json: {
         status: :unauthorized,
         errors: ['Invalid username or password']
-      }
+      }, status: :unauthorized
     end
   end
 
