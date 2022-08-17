@@ -2,7 +2,7 @@ require_relative 'current_user_concern'
 
 class Api::V1::ReservationsController < ApplicationController
   before_action :set_reservation, only: %i[show update destroy]
-  include CurrentUserConcern
+  include Api::V1::CurrentUserConcern
 
   # GET /reservations
   def index
