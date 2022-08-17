@@ -28,4 +28,31 @@ RSpec.describe 'Trekker API', type: :request do
       end
     end
   end
+
+  path '/api/v1/sessions' do
+    post 'Sign in' do
+      tags 'Users'
+      consumes 'application/json'
+      parameter name: :user, in: :body, schema: {
+        type: :object,
+        properties: {
+          username: { type: :string },
+          password: { type: :string }
+        },
+        required: [ 'username', 'password' ]
+      }
+
+      it 'returns http created' do
+        user = build(:user)
+        user.save
+        post api_v1_sessions_path, params: { username: user.username, password: user.password }
+        expect(response).to have_http_status(:created)
+      end
+
+      response '401', 'Invalid username or password' do
+        let(:user) { { username: 'tester' } }
+        run_test!
+      end
+    end
+  end
 end
