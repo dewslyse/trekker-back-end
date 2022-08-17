@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+  has_secure_password
+  after_create :update_role
 
   has_many :destinations, dependent: :destroy
   has_many :reservations, dependent: :destroy
@@ -13,4 +13,8 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6, maximum: 20 }, confirmation: true
   validates :password_confirmation, presence: true, length: { minimum: 6, maximum: 20 },
                                     comparison: { equal_to: :password }
+
+  def update_role
+    User.first.update(role: 'admin') if User.first == self
+  end
 end
