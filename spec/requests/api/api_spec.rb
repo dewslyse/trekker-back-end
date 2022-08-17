@@ -14,11 +14,14 @@ RSpec.describe 'Trekker API', type: :request do
           password: { type: :string, example: 'password' },
           password_confirmation: { type: :string, example: 'password' }
         },
-        required: [ 'full_name', 'username', 'email', 'password', 'password_confirmation' ]      
+        required: %w[full_name username email password password_confirmation]
       }
 
       response '201', 'user created' do
-        let(:user) { { full_name: 'The Tester', username: 'tester', email: 'tester@example.com', password: 'password', password_confirmation: 'password' } }
+        let(:user) do
+          { full_name: 'The Tester', username: 'tester', email: 'tester@example.com', password: 'password',
+            password_confirmation: 'password' }
+        end
         run_test!
       end
 
@@ -39,7 +42,7 @@ RSpec.describe 'Trekker API', type: :request do
           username: { type: :string },
           password: { type: :string }
         },
-        required: [ 'username', 'password' ]
+        required: %w[username password]
       }
 
       it 'returns http created' do

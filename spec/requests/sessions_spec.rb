@@ -8,9 +8,9 @@ RSpec.describe 'Sessions', type: :request do
   describe 'POST#create' do
     it 'returns http created' do
       user = build(:user)
-        user.save
-        post api_v1_sessions_path, params: { username: user.username, password: user.password }
-        expect(response).to have_http_status(:created)
+      user.save
+      post api_v1_sessions_path, params: { username: user.username, password: user.password }
+      expect(response).to have_http_status(:created)
     end
   end
 
