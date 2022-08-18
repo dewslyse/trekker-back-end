@@ -8,12 +8,14 @@ class Api::V1::DestinationsController < ApplicationController
   def index
     @destinations = Destination.all
 
-    render json: @destinations.map { |destination| destination.attributes.except('user_id') }
+    render json: @destinations.map { |destination|
+                   destination.attributes.except('user_id', 'created_at', 'updated_at')
+                 }
   end
 
   # GET /destinations/1
   def show
-    render json: @destination.attributes.except('user_id')
+    render json: @destination.attributes.except('user_id', 'created_at', 'updated_at')
   end
 
   # POST /destinations
