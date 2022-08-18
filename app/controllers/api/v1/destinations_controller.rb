@@ -8,12 +8,12 @@ class Api::V1::DestinationsController < ApplicationController
   def index
     @destinations = Destination.all
 
-    render json: @destinations
+    render json: @destinations.map { |destination| destination.attributes.except('user_id') }
   end
 
   # GET /destinations/1
   def show
-    render json: @destination
+    render json: @destination.attributes.except('user_id')
   end
 
   # POST /destinations
@@ -51,7 +51,6 @@ class Api::V1::DestinationsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def destination_params
-    # params.fetch(:destination, {})
     params.permit(:name, :description, :image_url, :city_name)
   end
 end
