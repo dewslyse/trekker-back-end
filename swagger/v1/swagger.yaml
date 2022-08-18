@@ -25,16 +25,12 @@ paths:
                   type: string
                 username:
                   type: string
-                  example: tester
                 email:
                   type: string
-                  example: tester@example.com
                 password:
                   type: string
-                  example: password
                 password_confirmation:
                   type: string
-                  example: password
               required:
               - full_name
               - username
@@ -63,6 +59,28 @@ paths:
               required:
               - username
               - password
+  "/api/v1/destinations":
+    get:
+      summary: Retrieve Destinations
+      tags:
+      - Destinations
+      responses:
+        '200':
+          description: destinations found
+  "/api/v1/destinations/{id}":
+    get:
+      summary: Retrieve Destination
+      tags:
+      - Destinations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: destination found
 servers:
 - url: https://{defaultHost}
   variables:
