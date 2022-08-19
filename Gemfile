@@ -40,6 +40,8 @@ gem 'factory_bot_rails'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 
+gem 'rails_same_site_cookie'
+
 # User rswag to generate API documentation
 gem 'rswag-api'
 gem 'rswag-ui'

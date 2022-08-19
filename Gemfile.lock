@@ -160,6 +160,9 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.4.3)
       loofah (~> 2.3)
+    rails_same_site_cookie (0.1.9)
+      rack (>= 1.5)
+      user_agent_parser (~> 2.6)
     railties (7.0.3.1)
       actionpack (= 7.0.3.1)
       activesupport (= 7.0.3.1)
@@ -220,6 +223,7 @@ GEM
     tzinfo-data (1.2022.1)
       tzinfo (>= 1.0.0)
     unicode-display_width (2.2.0)
+    user_agent_parser (2.11.0)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -239,6 +243,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rack-cors
   rails (~> 7.0.3, >= 7.0.3.1)
+  rails_same_site_cookie
   rspec-rails
   rswag-api
   rswag-specs
