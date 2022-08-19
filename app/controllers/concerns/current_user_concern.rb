@@ -1,4 +1,4 @@
-module Api::V1::CurrentUserConcern
+module CurrentUserConcern
   extend ActiveSupport::Concern
 
   included do

@@ -1,13 +1,10 @@
-require_relative 'current_user_concern'
-
 class Api::V1::ReservationsController < ApplicationController
   before_action :set_reservation, only: %i[show update destroy]
-  include Api::V1::CurrentUserConcern
+  include CurrentUserConcern
 
   # GET /reservations
   def index
     @reservations = Reservation.all.where(user_id: @current_user.id)
-    # @reservations = Reservation.all
 
     render json: @reservations
   end

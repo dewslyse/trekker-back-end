@@ -1,7 +1,5 @@
-require_relative 'current_user_concern'
-
 class Api::V1::SessionsController < ApplicationController
-  include Api::V1::CurrentUserConcern
+  include CurrentUserConcern
 
   def create
     user = User.find_by(username: params[:username])
