@@ -8,8 +8,10 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :destinations do
-        resources :reservations
+        # resources :reservations
+        post :reservations, only: [:create, :update]
       end
+      resources :reservations, only: [:index, :show, :destroy]
       resources :sessions, only: [:create]
       resources :registrations, only: [:create]
       delete :logout, to: "sessions#logout"
