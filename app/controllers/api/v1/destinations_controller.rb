@@ -1,4 +1,4 @@
-require_relative 'current_user_concern'
+# require_relative 'current_user_concern'
 
 class Api::V1::DestinationsController < ApplicationController
   before_action :set_destination, only: %i[show update destroy]
