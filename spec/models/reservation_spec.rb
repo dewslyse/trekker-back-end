@@ -56,18 +56,18 @@ RSpec.describe Reservation, type: :model do
       end
     end
 
-    context 'when the fee is valid' do
-      it 'is invalid when the fee is null' do
-        expect(build(:reservation, fee: nil)).to_not be_valid
-      end
+    # context 'when the fee is valid' do
+    #   it 'is invalid when the fee is null' do
+    #     expect(build(:reservation, fee: nil)).to_not be_valid
+    #   end
 
-      it 'is invalid when the fee is empty' do
-        expect(build(:reservation, fee: '')).to_not be_valid
-      end
+    #   it 'is invalid when the fee is empty' do
+    #     expect(build(:reservation, fee: '')).to_not be_valid
+    #   end
 
-      it 'is invalid when the fee is less than 0' do
-        expect(build(:reservation, fee: -1)).to_not be_valid
-      end
-    end
+    #   it 'is invalid when the fee is less than 0' do
+    #     expect(build(:reservation, fee: -1)).to_not be_valid
+    #   end
+    # end
   end
 end
