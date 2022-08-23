@@ -3,7 +3,6 @@ class CreateReservations < ActiveRecord::Migration[7.0]
     create_table :reservations do |t|
       t.belongs_to :user, index: true, foreign_key: true
       t.belongs_to :destination, index: true, foreign_key: true
-      t.decimal :fee
       t.date :start_date
       t.date :end_date
 

@@ -51,6 +51,6 @@ class Api::V1::DestinationsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def destination_params
-    params.permit(:name, :description, :image_url, :city_name)
+    params.permit(:name, :description, :image_url, :city_name, :fee)
   end
 end

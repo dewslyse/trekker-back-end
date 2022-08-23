@@ -17,6 +17,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_15_161347) do
   create_table "destinations", force: :cascade do |t|
     t.string "name"
     t.string "city_name"
+    t.string "fee"
     t.text "description"
     t.string "image_url"
     t.bigint "user_id"
@@ -28,7 +29,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_15_161347) do
   create_table "reservations", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "destination_id"
-    t.decimal "fee"
     t.date "start_date"
     t.date "end_date"
     t.datetime "created_at", null: false
