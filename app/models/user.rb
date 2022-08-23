@@ -1,6 +1,5 @@
 class User < ApplicationRecord
   has_secure_password
-  after_create :update_role
 
   has_many :destinations, dependent: :destroy
   has_many :reservations, dependent: :destroy
@@ -14,7 +13,4 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, length: { minimum: 6, maximum: 20 },
                                     comparison: { equal_to: :password }
 
-  def update_role
-    User.first.update(role: 'admin') if User.first == self
-  end
 end

@@ -28,10 +28,4 @@ class Api::V1::RegistrationsController < ApplicationController
       }, status: :unprocessable_entity
     end
   end
-
-  private
-
-  def update_role
-    User.first.update(role: 'admin') if User.first == @user
-  end
 end
