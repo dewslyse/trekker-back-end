@@ -8,8 +8,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :destinations do
-        # resources :reservations
-        post :reservations, only: [:create, :update]
+        resources :reservations, only: [:create, :update]
       end
       resources :reservations, only: [:index, :show, :destroy]
       resources :sessions, only: [:create]
