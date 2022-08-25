@@ -15,9 +15,9 @@
 - Rails `7.0.3`
 - PostgreSQL
 
-## Live site 🚀
+## API Documentation 📄
 
-🔗 [Heroku](#)
+🔗 [Trekker API documentation](https://mv-trekker-api.herokuapp.com)
 
 ## Getting Started
 
@@ -72,6 +72,16 @@ $ rails db:create db:migrate db:seed
 
 ### Tests
 - Run `rspec` to run the tests
+
+## Kanban board
+### Link to Kanban board
+🔗 [Trekker kanban board](https://github.com/users/dewslyse/projects/3)
+
+🔗 [Link to initial state of Kanban board](https://user-images.githubusercontent.com/8092327/184234854-3ca0bb13-d75a-4eb6-ad46-e2701a4ee11a.png)
+
+**Number of Team members** **4**
+
+<br />
 
 ## Authors
 
