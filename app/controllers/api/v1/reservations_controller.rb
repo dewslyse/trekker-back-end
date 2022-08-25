@@ -4,7 +4,7 @@ class Api::V1::ReservationsController < ApplicationController
 
   # GET /reservations
   def index
-    @reservations = Reservation.all.where(user_id: @current_user.id)
+    @reservations = Reservation.all.where(user: @current_user)
 
     render json: @reservations
   end
@@ -17,7 +17,7 @@ class Api::V1::ReservationsController < ApplicationController
   # POST /reservations
   def create
     @reservation = Reservation.new(reservation_params)
-    @reservation.user_id = @current_user.id
+    @reservation.user = @current_user
 
     if @reservation.save
       render json: @reservation, status: :created

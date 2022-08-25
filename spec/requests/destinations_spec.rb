@@ -23,13 +23,4 @@ RSpec.describe 'Destination', type: :request do
       expect(response).to have_http_status(:success)
     end
   end
-
-  describe 'POST#create' do
-    it 'returns http success' do
-      post api_v1_destinations_path, params: {
-        name: 'New Destination', description: 'New Description', image_url: 'New Image', city_name: 'new city'
-      }
-      expect(response).to have_http_status(:success)
-    end
-  end
 end
