@@ -2,14 +2,13 @@ require 'rails_helper'
 
 RSpec.describe 'Reservation', type: :request do
   before(:example) do
-    load Rails.root + 'db/seeds.rb'
-    # @user = build(:user)
-    # @user.save
-    # @destination = build(:destination)
-    # @destination.save
-    # @reservation = build(:reservation)
+    @user = build(:user)
+    @user.save
+    @destination = build(:destination)
+    @destination.save
+    @reservation = build(:reservation)
 
-    post '/api/v1/sessions', params: { username: 'selase', password: 'password' }
+    post '/api/v1/sessions', params: { username: @user.username, password: @user.password }
   end
 
   describe 'GET #index' do

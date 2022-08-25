@@ -107,7 +107,7 @@ RSpec.describe 'Trekker API', type: :request do
           user_id: { type: :integer },
           destination_id: { type: :integer },
           start_date: { type: :date },
-          end_date: { type: :string },
+          end_date: { type: :string }
         },
         required: %w[user_id destination_id start_date end_date]
       }
@@ -118,23 +118,12 @@ RSpec.describe 'Trekker API', type: :request do
           @user.save
           @destination = build(:destination)
           @destination.save
-
           post api_v1_sessions_path, params: { username: @user.username, password: @user.password }
         end
-
-        it 'returns http created' do
-          post api_v1_destination_reservations_path(@destination), params: {
-          start_date: '2022-11-01', end_date: '2022-12-01'
-          }
-
-          expect(response).to have_http_status(:unprocessable_entity)
-        end
-
         it 'returns invalid request' do
           post api_v1_destination_reservations_path(@destination.id), params: {
-          start_date: '2022-11-01'
+            start_date: '2022-11-01'
           }
-
           expect(response).to have_http_status(:unprocessable_entity)
         end
       end

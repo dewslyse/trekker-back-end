@@ -12,5 +12,4 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6, maximum: 20 }, confirmation: true
   validates :password_confirmation, presence: true, length: { minimum: 6, maximum: 20 },
                                     comparison: { equal_to: :password }
-
 end
