@@ -81,6 +81,71 @@ paths:
       responses:
         '200':
           description: destination found
+  "/api/v1/destinations/{id}/reservations":
+    post:
+      summary: Create Reservation
+      tags:
+      - Reservations
+      parameters: []
+      responses:
+        '201':
+          description: reservation created
+        '422':
+          description: Invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: integer
+                destination_id:
+                  type: integer
+                start_date:
+                  type: string
+                end_date:
+                  type: string
+              required:
+              - user_id
+              - destination_id
+              - start_date
+              - end_date
+  api/v1/reservations:
+    get:
+      summary: Get Reservations
+      tags:
+      - Reservations
+      responses:
+        '200':
+          description: reservations found
+  api/v1/reservations/{id}:
+    get:
+      summary: Get Reservation
+      tags:
+      - Reservations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: reservation found
+    delete:
+      summary: Delete Reservation
+      tags:
+      - Reservations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '204':
+          description: reservation deleted
 servers:
 - url: https://{defaultHost}
   variables:
