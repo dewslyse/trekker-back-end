@@ -86,7 +86,12 @@ paths:
       summary: Create Reservation
       tags:
       - Reservations
-      parameters: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '201':
           description: reservation created
@@ -111,7 +116,7 @@ paths:
               - destination_id
               - start_date
               - end_date
-  api/v1/reservations:
+  "/api/v1/reservations":
     get:
       summary: Get Reservations
       tags:
@@ -119,7 +124,7 @@ paths:
       responses:
         '200':
           description: reservations found
-  api/v1/reservations/{id}:
+  "/api/v1/reservations/{id}":
     get:
       summary: Get Reservation
       tags:
