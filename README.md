@@ -79,7 +79,7 @@ $ rails db:create db:migrate db:seed
 
 🔗 [Link to initial state of Kanban board](https://user-images.githubusercontent.com/8092327/184234854-3ca0bb13-d75a-4eb6-ad46-e2701a4ee11a.png)
 
-**Number of Team members: ** **4**
+**Number of Team members:  4**
 
 <br />
 
