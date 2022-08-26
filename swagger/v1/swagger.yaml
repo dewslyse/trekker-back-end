@@ -1,0 +1,158 @@
+---
+openapi: 3.0.1
+info:
+  title: Trekker API
+  version: v1
+paths:
+  "/api/v1/registrations":
+    post:
+      summary: Register
+      tags:
+      - Users
+      parameters: []
+      responses:
+        '201':
+          description: user created
+        '422':
+          description: Invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                full_name:
+                  type: string
+                username:
+                  type: string
+                email:
+                  type: string
+                password:
+                  type: string
+                password_confirmation:
+                  type: string
+              required:
+              - full_name
+              - username
+              - email
+              - password
+              - password_confirmation
+  "/api/v1/sessions":
+    post:
+      summary: Sign in
+      tags:
+      - Users
+      parameters: []
+      responses:
+        '401':
+          description: Invalid username or password
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+              required:
+              - username
+              - password
+  "/api/v1/destinations":
+    get:
+      summary: Retrieve Destinations
+      tags:
+      - Destinations
+      responses:
+        '200':
+          description: destinations found
+  "/api/v1/destinations/{id}":
+    get:
+      summary: Retrieve Destination
+      tags:
+      - Destinations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: destination found
+  "/api/v1/destinations/{id}/reservations":
+    post:
+      summary: Create Reservation
+      tags:
+      - Reservations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: reservation created
+        '422':
+          description: Invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: integer
+                destination_id:
+                  type: integer
+                start_date:
+                  type: string
+                end_date:
+                  type: string
+              required:
+              - user_id
+              - destination_id
+              - start_date
+              - end_date
+  "/api/v1/reservations":
+    get:
+      summary: Get Reservations
+      tags:
+      - Reservations
+      responses:
+        '200':
+          description: reservations found
+  "/api/v1/reservations/{id}":
+    get:
+      summary: Get Reservation
+      tags:
+      - Reservations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: reservation found
+    delete:
+      summary: Delete Reservation
+      tags:
+      - Reservations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '204':
+          description: reservation deleted
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: mv-trekker-api.herokuapp.com
