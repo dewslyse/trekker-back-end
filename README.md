@@ -1,7 +1,7 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Final Capstone - Trekker
-> This is a Rails back-end for our Final Capstone project.
+# Trekker app
+> This is a Ruby on Rails back-end for our Final Capstone project.
 
 🔗 **[Link to Front-end React app](https://github.com/dewslyse/trekker-front-end)** 🖼
 
